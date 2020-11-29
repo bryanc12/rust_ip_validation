@@ -2,7 +2,7 @@ use std::io::{self, Write};
 
 fn main() {
     let input = get_user_input();
-    let input_array = input_to_array(input);
+    let input_array = input_to_array(&input);
     println!("{:?}", input_array);
 }
 
@@ -20,9 +20,6 @@ fn get_user_input() -> String {
     }
 }
 
-fn input_to_array(input: String) -> Vec<&'static str> {
-    let space_trimmed = input.trim();
-    let split = space_trimmed.split('.');
-    let vec = split.collect::<Vec<&str>>();
-    vec
+fn input_to_array (input: &str) -> Vec<&str> {
+    input.trim().split('.').collect()
 }
